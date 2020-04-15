@@ -1,0 +1,62 @@
+A13 Bumpy road
+A14 Speed bump
+A15 Slippery road
+A1A Dangerous left curve
+A1B Dangerous right curve
+A1C Left curve followed by right curve
+A1D Right curve followed by left curve
+A23 Place where a lot of children come
+A25 Bicycle crossing
+A29 Cattle crossing
+A31 Construction
+A33 Traffic lights
+A41 Low flying aircraft
+A51 Caution sign
+A7A Road narrows
+A7B Road narrows to the right
+A7C Road narrows to the left
+B15A Priority at next intersection
+B17 Intersection with priority to the right
+B1 Give way
+B19 Narrow passage, give way to traffic from opposite side
+B5 Stop and give way
+C1 Forbidden direction for all drivers of a vehicle
+C11 No entry for bicycles
+C21 No entry for vehicles with more mass than indicated
+C23 No entry for vehicles used for goods transport
+C27 No entry for vehicles which are wider than indicated
+C29 No entry for vehicles which are higher than indicated
+C3 No entry, in both directions, for all drivers of a vehicle
+C31LEFT No turn to left
+C31RIGHT No turn to right
+C35 No overtaking of vehicles with more than two wheels until the next intersection
+C43 Maximum speed as indicated until the next intersection
+D10 Part of the road reserved for cyclists and pedestrians
+D1a Mandatory to follow the direction (Forward)
+D1b Mandatory to follow the direction (Left)
+D3b Mandatory to follow one of the directions
+D5 Roundabout
+D7 Mandatory cycleway
+D9 Part of the road reserved for pedestrians, cyclists and mofas
+E1 No parking allowed
+E3 No parking or standing still allowed
+E5 No parking allowed on this side of the road from 1st day of the month until the 15th
+E7 No parking allowed on this side of the road from the 16th day of the month until the last
+B21 Narrow passage, priority over traffic from opposite side
+E9a Parking allowed
+E9a_miva Parking allowed
+E9b Parking exclusively for motorcycles, motorcars and minibuses
+E9c Parking exclusively for lorries
+E9d Parking exclusively for tourist buses
+E9e Parking mandatory on pavement or verge
+F12a Start of zone de rencontre
+F12b End of zone de rencontre
+F19 Road with one-way traffic
+F45 No exit
+F47 End of road works
+F49 Pedestrian crossing
+F50 Bicycle and moped crossing
+F59 Indicating parking
+F87 Speed bump
+B11 End of priority road
+B9 Priority road
