@@ -92,7 +92,7 @@ print('Training the model..\n')
 history = model.fit(train_images, train_labels, epochs=10, validation_data=(test_images, test_labels))
 # model.save("cifar_classification.h5")
 
-# Evaluate the model
+# Learning curves
 plt.figure()
 plt.plot(history.history['accuracy'], label='accuracy')
 plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
