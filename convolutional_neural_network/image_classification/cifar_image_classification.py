@@ -45,6 +45,7 @@ for i in range(25):
     # which is why you need the extra index
     plt.xlabel(class_names[train_labels[i][0]], fontsize=5)
 plt.tight_layout()
+plt.savefig('plots/classes.png')
 # plt.show()
 
 # CNN Architecture
@@ -89,8 +90,11 @@ model.compile(optimizer='adam',
               metrics=['accuracy'])
 
 print('Training the model..\n')
-history = model.fit(train_images, train_labels, epochs=10, validation_data=(test_images, test_labels))
-# model.save("cifar_classification.h5")
+history = model.fit(train_images, train_labels, epochs=50, validation_data=(test_images, test_labels))
+
+# Save the model
+model.save("models/cifar_classification.h5")
+print('\nModel Saved...')
 
 # Learning curves
 plt.figure()
@@ -100,72 +104,5 @@ plt.xlabel('Epoch')
 plt.ylabel('Accuracy')
 plt.ylim([0.5, 1])
 plt.legend(loc='lower right')
+plt.savefig('plots/epoch_vs_accuracy.png')
 plt.show()
-
-test_loss, test_acc = model.evaluate(test_images,  test_labels, verbose=2)
-print('\nTest accuracy :', test_acc)
-print('Test loss : ', test_loss)
-
-# Making Predictions for all test images
-predictions = model.predict(test_images)
-print('\nPrediction of 1st image :\n',predictions[0]) # Returns an array of probabillities for each classes
-print('\nPredicted class of 1st image : ',class_names[np.argmax(predictions[0])])
-print('True value of 1st image : ', class_names[test_labels[0][0]])
-
-predicted_class = map(lambda x : class_names[np.argmax(x)], predictions)
-true_class = map(lambda x : class_names[x[0]], test_labels)
-
-df_pred = pd.DataFrame({'True': list(true_class), 'Predicted': list(predicted_class)})
-print('\nTrue VS Predicted DataFrame :\n', df_pred.head(10))
-
-
-# Predicting for singe image
-# COLOR = 'white'
-# plt.rcParams['text.color'] = COLOR
-# plt.rcParams['axes.labelcolor'] = COLOR
-
-def predict(model, image, correct_label, num):
-  prediction = model.predict(np.array([image]))
-  predicted_class = class_names[np.argmax(prediction)]
-  print(f'\nImage-{num}:\nExcpected : {class_names[correct_label]}\nPredicted : {predicted_class}')
-  show_image(image, class_names[correct_label], predicted_class, num)
-
-def show_image(img, label, pred, num):
-  plt.figure()
-  plt.imshow(img, cmap=plt.cm.binary)
-  plt.title(f'Image-{num}\nExcpected : {label}')
-  plt.xlabel(f'Predicted : {pred}')
-  plt.xticks([])
-  plt.yticks([])
-  plt.colorbar()
-  plt.show()
-
-def get_number():
-  while True:
-    num = input(f'Pick a number between 0 and {test_images.shape[0]}: ')
-    if num.isdigit():
-      num = int(num)
-      if 0 <= num < test_images.shape[0]:
-        return int(num)
-    else:
-      print("Try again...")
-
-print('\nPredicting for single image:')
-num = get_number()
-image = test_images[num]
-label = test_labels[num][0]
-predict(model, image, label, num)
-
-is_continue = 'y'
-while(is_continue == 'y'):
-    is_continue = input('Do you want to continue? [y/n] : ')
-    if(is_continue == 'y'):
-        num = get_number()
-        image = test_images[num]
-        label = test_labels[num][0]
-        predict(model, image, label, num)
-    elif(is_continue == 'n'):
-        print("Seems like you've seen enough")
-    else:
-        print('Oops! Provide a valid input')
-        is_continue = 'y'
